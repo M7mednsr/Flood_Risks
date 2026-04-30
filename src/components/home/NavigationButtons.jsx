@@ -15,9 +15,9 @@ const buttons = [
     ),
   },
   {
-    label: 'Topographic Maps',
+    label: 'Flood 1966',
     description: 'Analyse elevation models, terrain profiles, and surface features of the Florence basin.',
-    path: '/topography',
+    path: '/flood1966',
     gradient: 'from-slate-700 to-indigo-600',
     hoverGradient: 'hover:from-slate-800 hover:to-indigo-700',
     shadow: 'hover:shadow-indigo-500/30',
@@ -31,7 +31,7 @@ const buttons = [
 
 export default function NavigationButtons() {
   return (
-    <section id="explore" className="w-full bg-slate-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8" style={{ marginBottom: '1rem' }} >
+    <section id="explore" className="w-full bg-slate-50 pt-8 pb-16 sm:pt-16 sm:pb-32 md:pt-24 md:pb-48 px-4 sm:px-6 lg:px-8">
 
       {/* Centred column */}
       <div className="flex flex-col items-center text-center">
@@ -49,7 +49,7 @@ export default function NavigationButtons() {
         </p>
 
         {/* Card grid — 1 col mobile / 2 col sm+ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full max-w-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-4/5 sm:w-full max-w-3xl">
           {buttons.map((btn) => (
             <Link
               key={btn.path}
@@ -59,7 +59,8 @@ export default function NavigationButtons() {
                 bg-linear-to-br ${btn.gradient} ${btn.hoverGradient}
                 text-white shadow-lg hover:shadow-2xl ${btn.shadow}
                 transition-all duration-300 ease-in-out hover:-translate-y-1.5
-                p-6 flex flex-col gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60
+                p-4 sm:p-10 flex flex-col items-center text-center gap-3 sm:gap-5
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60
               `}
             >
               {/* Decorative circles */}
@@ -67,20 +68,20 @@ export default function NavigationButtons() {
               <span className="pointer-events-none absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-white/5 group-hover:scale-110 transition-transform duration-500" />
 
               {/* Icon */}
-              <div className="relative z-10 w-fit p-3 rounded-xl bg-white/20 backdrop-blur-sm">
+              <div className="relative z-10 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-colors duration-300 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-7 sm:[&>svg]:h-7">
                 {btn.icon}
               </div>
 
               {/* Text */}
-              <div className="relative z-10 flex-1 text-left">
-                <h3 className="text-lg font-bold mb-1.5 tracking-tight">{btn.label}</h3>
-                <p className="text-sm text-white/80 leading-relaxed">{btn.description}</p>
+              <div className="relative z-10 flex-1">
+                <h3 className="text-base sm:text-xl font-bold mb-1 sm:mb-2 tracking-tight">{btn.label}</h3>
+                <p className="text-xs sm:text-base text-white/80 leading-relaxed">{btn.description}</p>
               </div>
 
               {/* Arrow CTA */}
-              <div className="relative z-10 flex items-center gap-2 text-sm font-semibold text-white/90 group-hover:gap-3 transition-all duration-200">
+              <div className="relative z-10 inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-white/90 group-hover:gap-2 sm:group-hover:gap-3 transition-all duration-200 bg-white/10 hover:bg-white/20 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">
                 <span>Explore</span>
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
@@ -88,6 +89,9 @@ export default function NavigationButtons() {
           ))}
         </div>
       </div>
+
+      {/* Explicit spacer to force bottom scroll area */}
+      <div className="h-12 md:h-20 w-full"></div>
     </section>
   );
 }

@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage'
 import HydrologyMapsPage from './pages/HydrologyMaps'
 import FloodIndicatorsPage from './pages/FloodIndicators'
 import FloodHazardsPage from './pages/FloodHazards'
-import TopographicMapsPage from './pages/TopographicMaps'
+import Flood1966 from './pages/Flood1966'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path="/hazards" element={<FloodHazardsPage />} />
           <Route path="/hydrology" element={<HydrologyMapsPage />} />
           <Route path="/indicators" element={<FloodIndicatorsPage />} />
-          <Route path="/topography" element={<TopographicMapsPage />} />
+          <Route path="/flood1966" element={<Flood1966 />} />
         </Route>
       </Routes>
     </BrowserRouter>

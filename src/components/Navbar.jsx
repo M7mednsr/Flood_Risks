@@ -7,7 +7,7 @@ const navItems = [
   { name: "Flood Hazards", path: "/hazards" },
   { name: "Hydrology Maps", path: "/hydrology" },
   { name: "Flood Indicators", path: "/indicators" },
-  { name: "Topographic Maps", path: "/topography" },
+  { name: "Flood 1966", path: "/flood1966" },
 ];
 
 export default function Navbar() {
