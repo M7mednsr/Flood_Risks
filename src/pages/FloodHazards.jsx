@@ -1,5 +1,6 @@
 import TopographicBackground from '../components/layout/TopographicBackground';
-import FloodHazardMap from '../components/hazards/FloodHazardMap';
+import MapSection from '../components/shared/MapSection';
+import { hazardsSections } from '../data/hazardsData';
 
 function FloodHazardsPage() {
   return (
@@ -29,10 +30,9 @@ function FloodHazardsPage() {
           <div className="h-1.5 w-24 bg-linear-gradient-to-r from-blue-600 to-emerald-500 mx-auto mt-8 rounded-full relative z-10"></div>
         </div>
 
-        {/* Map Container */}
-        <div>
-          <FloodHazardMap />
-        </div>
+        {hazardsSections.map((section) => (
+          <MapSection key={section.id} {...section} />
+        ))}
 
       </div>
     </main>

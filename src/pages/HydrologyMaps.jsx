@@ -1,9 +1,6 @@
-import WaterBasinsMap from '../components/hydrology/WaterBasinsMap';
-import FlowDirectionMap from '../components/hydrology/FlowDirectionMap';
-import FalseCellsMap from '../components/hydrology/FalseCellsMap';
-import OutlierProcessingMap from '../components/hydrology/OutlierProcessingMap';
-import FlowAccumulationMap from '../components/hydrology/FlowAccumulationMap';
 import TopographicBackground from '../components/layout/TopographicBackground';
+import MapSection from '../components/shared/MapSection';
+import { hydrologySections } from '../data/hydrologyData';
 
 function HydrologyMapsPage() {
   return (
@@ -25,17 +22,13 @@ function HydrologyMapsPage() {
           <div className="h-1.5 w-24 bg-linear-to-r from-blue-600 to-emerald-500 mx-auto mt-8 rounded-full relative z-10"></div>
         </div>
 
-        <div >
-          <WaterBasinsMap />
-          <FlowDirectionMap />
-          <FalseCellsMap />
-          <OutlierProcessingMap />
-          <FlowAccumulationMap />
-          {/* Future maps will be added here */}
-        </div>
+        {hydrologySections.map((section) => (
+          <MapSection key={section.id} {...section} />
+        ))}
       </div>
     </main>
-  )
+  );
 }
 
 export default HydrologyMapsPage;
+
